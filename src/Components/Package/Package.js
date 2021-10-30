@@ -7,7 +7,7 @@ import './Package.css'
 
 const Package = (props) => {
     const {p_name, p_city, p_description, p_img, p_price, p_rating, _id} = props.package;
-    const url = `packages/package/${_id}`;
+    const url = `packages/placeorder/${_id}`;
     return (
         <CardGroup>
   <Card>
@@ -26,7 +26,7 @@ const Package = (props) => {
          </div>
       </div>
     </Card.Body>
-    <Card.Footer className="d-flex align-items-center">
+    <Card.Footer className="d-flex align-items-center justify-content-between">
     <div className="package-rating">
              <Rating readOnly value={p_rating}></Rating>
          </div>

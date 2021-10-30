@@ -20,11 +20,15 @@ const Header = () => {
               <Navbar.Collapse id="basic-navbar-nav" className="w-75">
                 <Nav className="text-white header-nav d-flex justify-content-end w-100">
                   <NavLink activeStyle={activeLink} to="/home">Home</NavLink>
-                  <NavLink activeStyle={activeLink} to="/manageorders">Manage Orders</NavLink>
-                  <NavLink activeStyle={activeLink} to="/myorders">My Orders</NavLink>
-                  <NavLink activeStyle={activeLink} to="/addpackage">Add Package</NavLink>
+                  
                   {
-                      user.email ? <button className="btn text-white btn-danger" onClick={handleLogout}>LogOut</button>
+                      user.email ? <div>
+                        <NavLink activeStyle={activeLink} to="/manageorders">Manage Orders</NavLink>
+                        <NavLink activeStyle={activeLink} to="/myorders">My Orders</NavLink>
+                        <NavLink activeStyle={activeLink} to="/addpackage">Add Package</NavLink>
+                        <span className="brand-color-text text-capitalize fs-5">{user.displayName}</span>
+                        <button className="btn text-white btn-danger" onClick={handleLogout}>LogOut</button>
+                      </div>
                         :
                       <NavLink to="/login">Login</NavLink>
                   }

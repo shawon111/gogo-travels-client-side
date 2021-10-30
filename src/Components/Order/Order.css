@@ -1,0 +1,7 @@
+.single-order-container{
+    height: 200px;
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr 1fr 1fr 1fr;
+    padding: 20px;
+    border: 1px solid var(--brand-color);
+}
