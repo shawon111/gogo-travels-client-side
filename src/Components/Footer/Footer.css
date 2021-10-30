@@ -1,0 +1,28 @@
+footer{
+    padding-top: 80px;
+}
+.footer-contents{
+    padding-bottom: 30px;
+}
+.footer-description{
+    padding: 0% 20%;
+}
+.social-icons{
+    text-align: center;
+    margin-top: 40px;
+}
+.social-icons a {
+    font-size: 23px;
+    padding: 0px 8px;
+    color: #fff;
+}
+.social-icons a:hover{
+    color: var(--brand-color);
+}
+.footer-bottom{
+    background-color: var(--secondary-color);
+    padding: 10px 0px;
+}
+.footer-bottom p {
+    margin-top: 20px;
+}

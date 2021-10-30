@@ -1,0 +1,18 @@
+.login-banner{
+    height: 100vh;
+    background-image: url(../../images/login-banner.jpg), linear-gradient(rgb(60, 0, 0) 10%, rgb(0, 66, 66) 70%);
+    background-blend-mode: overlay;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login-google-button{
+    font-size: 24px;
+    background-color: var(--brand-color);
+    border: none;
+    padding: 12px 40px;
+}
+.login-google-button:hover{
+    background-color: rgb(255, 60, 0);
+}

@@ -9,44 +9,48 @@ import ManageOrders from './Components/ManageOrders/ManageOrders';
 import MyOrders from './Components/MyOrders/MyOrders';
 import PageNotFound from './Components/PageNotFound/PageNotFound';
 import PlaceOrder from './Components/PlaceOrder/PlaceOrder';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import UpdateOrder from './Components/UpdateOrder/UpdateOrder';
+import AuthProvider from './contexts/AuthProvider';
 
 function App() {
   return (
     <div className="App">
+      <AuthProvider>
       <BrowserRouter>
       <Header></Header>
           <Switch>
               <Route exact path="/">
                  <Home></Home> 
               </Route>
-              <Route path="/home">
+              <Route exact path="/home">
                  <Home></Home> 
               </Route>
-              <Route path="/login">
+              <Route exact path="/login">
                  <Login></Login> 
               </Route>
-              <Route path="/addpackage">
+              <PrivateRoute exact path="/addpackage">
                  <AddNewPackage></AddNewPackage>
-              </Route>
-              <Route path="/manageorders">
+              </PrivateRoute>
+              <PrivateRoute exact path="/manageorders">
                  <ManageOrders></ManageOrders>
-              </Route>
-              <Route path="/myorders">
+              </PrivateRoute>
+              <PrivateRoute exact path="/myorders">
                  <MyOrders></MyOrders>
-              </Route>
-              <Route path="/updateorder">
+              </PrivateRoute>
+              <PrivateRoute exact path="/updateorder">
                  <UpdateOrder></UpdateOrder>
-              </Route>
-              <Route path="/placeorder">
-                 <PlaceOrder></PlaceOrder>
-              </Route>
+              </PrivateRoute>
+              <PrivateRoute exact path="/packages/package/:Id">
+                  <PlaceOrder></PlaceOrder>
+              </PrivateRoute>
               <Route path="*">
                  <PageNotFound></PageNotFound>
               </Route>
           </Switch>
           <Footer></Footer>
       </BrowserRouter>
+      </AuthProvider>
     </div>
   );
 }

@@ -1,0 +1,13 @@
+.css-ryrseu-MuiRating-root{
+    color: var(--brand-color)!important;
+}
+.package-thumb{
+    transition: transform 1s ease-in-out;
+}
+.card-thumb{
+    overflow: hidden;
+}
+.package-thumb:hover{
+    transform: scale(1.2);
+    box-sizing: border-box;
+}

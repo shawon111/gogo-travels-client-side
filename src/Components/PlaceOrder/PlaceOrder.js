@@ -1,9 +1,11 @@
 import React from 'react';
+import { useParams } from 'react-router';
 
 const PlaceOrder = () => {
+    const { Id } = useParams();
     return (
         <div>
-            <h1>place order</h1>
+            <h3>package Id : {Id}</h3>
         </div>
     );
 };

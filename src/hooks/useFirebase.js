@@ -10,21 +10,28 @@ const useFirebase = () => {
     //declaring user state
     const [user, setUser] = useState({});
 
+    // declaring loading state
+    const [isLoading, setIsLoading] = useState(true);
+
     //google login handler
     const handleGoogleLogin = () => {
+        setIsLoading(true);
         signInWithPopup(auth, googleProvider)
         .then(result => {
             setUser(result.user); 
-             })
+             }).catch(error => {
+                 console.log(error)
+             }).finally(()=> setIsLoading(false))
     };
 
     //handle logout
     const handleLogout = () => {
+        setIsLoading(true);
         signOut(auth).then( () => {
             setUser({})
         } ).catch((error)=> {
             alert('logout failed');
-        })
+        }).finally(()=> setIsLoading(false))
     }
 
     //getting currently logged in user
@@ -32,14 +39,19 @@ const useFirebase = () => {
         onAuthStateChanged(auth, (user) => {
             if(user) {
                 setUser(user)
+            }else{
+                setUser({});
             }
+            setIsLoading(false);
         })
     },[]);
 
     return {
         user,
         handleGoogleLogin,
-        handleLogout
+        handleLogout,
+        isLoading,
+        setIsLoading
     }
 }
 
