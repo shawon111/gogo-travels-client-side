@@ -15,14 +15,14 @@ const Header = () => {
             <Navbar expand="lg" variant="dark">
               <Container>
               <div className="d-flex w-100 justify-content-between">
-              <h2 className="text-white w-25 text-uppercase"><span className="brand-color-text">GoGo</span> Travels</h2>
+              <h2 className="logo text-white w-25 text-uppercase"><span className="brand-color-text">GoGo</span> Travels</h2>
               
               <Navbar.Collapse id="basic-navbar-nav" className="w-75">
                 <Nav className="text-white header-nav d-flex justify-content-end w-100">
                   <NavLink activeStyle={activeLink} to="/home">Home</NavLink>
                   
                   {
-                      user.email ? <div>
+                      user.email ? <div className="looged-user-menu">
                         <NavLink activeStyle={activeLink} to="/manageorders">Manage Orders</NavLink>
                         <NavLink activeStyle={activeLink} to="/myorders">My Orders</NavLink>
                         <NavLink activeStyle={activeLink} to="/addpackage">Add Package</NavLink>
