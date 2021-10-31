@@ -71,3 +71,6 @@ header, footer{
     color: #fff;
     transition: all .3s;
 }
+.no-order-text{
+    color: #6d6f77c4;
+}

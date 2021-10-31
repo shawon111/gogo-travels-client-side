@@ -54,8 +54,6 @@ const PlaceOrder = () => {
     //load package detail from database
     const [currentPackage, setCurrentPackage] = useState({});
     const {p_name, p_price, p_city, p_description, p_img, p_rating} = currentPackage;
-    console.log(p_rating);
-    console.log(p_img);
     const url = `http://localhost:5000/packages/package/${Id}`;
     useEffect(()=> {
         fetch(url)

@@ -22,7 +22,7 @@ const Package = (props) => {
       <div className="card-btn-price d-flex align-items-center justify-content-between">
          <div className="card-btn"><Link to={url}><Button className="btn brand-btn">Book Now</Button></Link></div>
          <div className="package-price">
-             <h5>Price: {p_price}</h5>
+             <h5>Price: ${p_price}</h5>
          </div>
       </div>
     </Card.Body>

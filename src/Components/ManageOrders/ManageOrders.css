@@ -1,10 +1,1 @@
-.order-list-container{
-    height: 80px;
-    display: grid;
-    grid-template-columns: 2fr 3fr 2fr 1fr 1fr 1fr;
-    padding-left: 20px;
-    border: 1px solid var(--brand-color);
-}
-.order-list-container .order-image, .order-list-container .order-name, .order-list-container .order-user{
-    border-right: 1px solid var(--brand-color);
-}
+

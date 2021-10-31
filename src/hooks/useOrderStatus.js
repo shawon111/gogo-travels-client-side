@@ -1,7 +1,8 @@
 import { useState } from "react"
 
 const useOrderStatus = () => {
-    const [orderStatus, setOrderStatus] = useState("pending");
+    const [orderStatus, setOrderStatus] = useState(false);
+    
     return {
         orderStatus,
         setOrderStatus

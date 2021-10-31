@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import './Order.css';
+import useOrderStatus from '../../hooks/useOrderStatus';
 
-const Order = (props, setOrderStatus) => {
+const ManageMyOrders = (props) => {
     const {userName, packageID, _id, status} = props.order;
     const [singleOrder, setSingleOrder] = useState({});
-    //loading orders
     const url = `http://localhost:5000/packages/package/${packageID}`;
+    //loading my orders
     useEffect(()=>{
         fetch(url)
         .then(res => res.json())
         .then(data => setSingleOrder(data))
     },[]);
     const {p_img, p_name, p_price} = singleOrder;
-
-    //deleting order
-    const handleCancelPackage = (id) => {
+     //deleting order
+     const handleCancelPackage = (id) => {
         if(window.confirm("Are you sure want to cancel this order?")){
             const url = `http://localhost:5000/packages/package/${id}`;
             fetch(url, {
@@ -30,35 +29,15 @@ const Order = (props, setOrderStatus) => {
         }else{
             alert('Order not cancelled')
         }
-    }
+        }
 
-    //updating order status
-
-    const ManageUpdateStatus = e => {
-        singleOrder.status = true;
-        const url = `http://localhost:5000/packages/package/${_id}`;
-        fetch(url, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(singleOrder)
-        }).then(res => res.json())
-        .then(data => {
-            if(data.modifiedCount>0){
-                alert('Order is approved!!')
-            }
-            window.location.reload();
-        })
-    }
-
-    let showStatus;
-    if(status){
-        showStatus = "Approved";
-    }else{
-        showStatus = "Pending";
-    }
-    
+        let showStatus;
+        if(status){
+            showStatus = "Approved";
+        }else{
+            showStatus = "Pending";
+        }
+       
 
     return (
         <div>
@@ -73,11 +52,11 @@ const Order = (props, setOrderStatus) => {
                 <div className="order-price d-flex align-items-center justify-content-center">
                     <h5>${p_price}</h5>
                 </div>
-                <div className="order-status d-flex align-items-center justify-content-center"><button onClick={ManageUpdateStatus} className="btn btn-warning text-white text-capitalize">{showStatus}</button></div>
+                <div className="order-status d-flex align-items-center justify-content-center"><span className="p-2 btn-warning text-white text-capitalize">{showStatus}</span></div>
                 <div className="delete-order d-flex align-items-center justify-content-center"><button onClick={()=> handleCancelPackage(_id)} className="btn brand-btn">Cancel</button></div>
             </div>
         </div>
     );
 };
 
-export default Order;
+export default ManageMyOrders;
