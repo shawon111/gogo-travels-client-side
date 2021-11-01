@@ -5,7 +5,7 @@ const Order = (props, setOrderStatus) => {
     const {userName, packageID, _id, status} = props.order;
     const [singleOrder, setSingleOrder] = useState({});
     //loading orders
-    const url = `http://localhost:5000/packages/package/${packageID}`;
+    const url = `https://my-gogo-travels-site.herokuapp.com/packages/package/${packageID}`;
     useEffect(()=>{
         fetch(url)
         .then(res => res.json())
@@ -16,7 +16,7 @@ const Order = (props, setOrderStatus) => {
     //deleting order
     const handleCancelPackage = (id) => {
         if(window.confirm("Are you sure want to cancel this order?")){
-            const url = `http://localhost:5000/packages/package/${id}`;
+            const url = `https://my-gogo-travels-site.herokuapp.com/packages/package/${id}`;
             fetch(url, {
                 method: 'delete'
             })
@@ -36,7 +36,7 @@ const Order = (props, setOrderStatus) => {
 
     const ManageUpdateStatus = e => {
         singleOrder.status = true;
-        const url = `http://localhost:5000/packages/package/${_id}`;
+        const url = `https://my-gogo-travels-site.herokuapp.com/packages/package/${_id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

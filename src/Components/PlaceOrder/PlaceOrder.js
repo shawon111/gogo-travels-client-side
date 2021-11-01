@@ -34,7 +34,7 @@ const PlaceOrder = () => {
         const orderDetail = {userName, userEmail, address, phone, note, packageID, status};
 
         //sending order detail to server
-        fetch('http://localhost:5000/packages/placeorder', {
+        fetch('https://my-gogo-travels-site.herokuapp.com/packages/placeorder', {
             method: 'post',
             headers: {
                 'content-type': 'application/json'
@@ -54,14 +54,14 @@ const PlaceOrder = () => {
     //load package detail from database
     const [currentPackage, setCurrentPackage] = useState({});
     const {p_name, p_price, p_city, p_description, p_img, p_rating} = currentPackage;
-    const url = `http://localhost:5000/packages/package/${Id}`;
+    const url = `https://my-gogo-travels-site.herokuapp.com/packages/package/${Id}`;
     useEffect(()=> {
         fetch(url)
         .then(res => res.json())
         .then(data => setCurrentPackage(data))
     },[])
     return (
-        <div>
+        <div>F
             <section>
                 <Container>
                     

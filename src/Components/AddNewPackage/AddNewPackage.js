@@ -20,7 +20,7 @@ const AddNewPackage = () => {
         const description = pDescription.current.value;
         const newPackage = {p_name: name, p_price:price, p_city: city, p_rating: rating, p_img: imgUrl, p_key: key, p_description: description};
 
-        fetch('http://localhost:5000/packages/addpackage', {
+        fetch('https://my-gogo-travels-site.herokuapp.com/packages/addpackage', {
             method: 'post',
             headers: {
                 'content-type': 'application/json'

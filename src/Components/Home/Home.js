@@ -10,7 +10,7 @@ import Button from '@restart/ui/esm/Button';
 const Home = () => {
     const [packages, setPackages] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/packages')
+        fetch('https://my-gogo-travels-site.herokuapp.com/packages')
         .then(res => res.json())
         .then(data => {
             setPackages(data)

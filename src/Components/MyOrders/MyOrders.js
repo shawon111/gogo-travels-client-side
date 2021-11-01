@@ -10,7 +10,7 @@ const MyOrders = () => {
 
     //loading my orders
     useEffect(()=> {
-        fetch('http://localhost:5000/allorders')
+        fetch('https://my-gogo-travels-site.herokuapp.com/allorders')
         .then(res => res.json())
         .then(data => {
             const myAllOrders = [];

@@ -4,7 +4,7 @@ import useOrderStatus from '../../hooks/useOrderStatus';
 const ManageMyOrders = (props) => {
     const {userName, packageID, _id, status} = props.order;
     const [singleOrder, setSingleOrder] = useState({});
-    const url = `http://localhost:5000/packages/package/${packageID}`;
+    const url = `https://my-gogo-travels-site.herokuapp.com/packages/package/${packageID}`;
     //loading my orders
     useEffect(()=>{
         fetch(url)
@@ -15,7 +15,7 @@ const ManageMyOrders = (props) => {
      //deleting order
      const handleCancelPackage = (id) => {
         if(window.confirm("Are you sure want to cancel this order?")){
-            const url = `http://localhost:5000/packages/package/${id}`;
+            const url = `https://my-gogo-travels-site.herokuapp.com/packages/package/${id}`;
             fetch(url, {
                 method: 'delete'
             })
